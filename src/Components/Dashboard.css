@@ -1,0 +1,35 @@
+/* Add this CSS rule to your stylesheet */
+.css-a5rdam-MuiGrid-root {
+    -webkit-box-flex-wrap: nowrap !important;
+    -webkit-flex-wrap: nowrap !important;
+    -ms-flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important;
+  }
+
+
+  /* Add this CSS rule to your stylesheet */
+.css-171rr5v-MuiGrid-root {
+    margin-top: 10px !important;
+  }
+  
+  
+  .css-171rr5v-MuiGrid-root {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 50px !important;
+    width: calc(100% + 24px);
+    margin-left: -24px;
+    background-color: #fff;
+    padding: 20px;
+}

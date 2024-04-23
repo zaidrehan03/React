@@ -1,0 +1,99 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #E6F7FF;
+}
+
+.card {
+  position: relative;
+  padding-top: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #546e7a;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  position: absolute;
+  top: -50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-logo {
+  border-radius: 36%;
+  border: 5px solid #546e7a;
+  background: #546e7a!important ;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+.login-form {
+  padding: 38px 54px 55px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the fields */
+}
+
+.login-input {
+  margin-bottom: 10px;
+  border: 2px solid #546e7a;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #546e7a !important;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    width: 90%;
+  }
+  
+  .card {
+    padding-top: 40px;
+  }
+
+  .image-container {
+    top: -40px;
+  }
+}
+
+.css-171rr5v-MuiGrid-root {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 50px !important;
+  width: calc(100% + 24px);
+  margin-left: -24px;
+  background-color: #fff;
+  padding: 20px;
+}

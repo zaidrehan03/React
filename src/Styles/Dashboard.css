@@ -1,0 +1,63 @@
+.AppBar{
+    background: #546e7a!important ;
+}
+
+.IpikLogo{
+    height: 5%;
+    width:  5%;
+}
+
+.SashaLogo{
+    height: 70px;
+    width:  70px;
+    vertical-align: middle;
+}
+
+.appbarButtonLinks {
+
+    color: aliceblue !important;
+    border-radius: none !important;
+    border: none !important;
+
+}
+
+
+.appbarButtonLinks {
+    text-decoration: none;
+    color: white; 
+  }
+  
+  .selectedButton {
+    background-color: black;
+    color: white;
+  }
+
+  .css-1oqqzyl-MuiContainer-root {
+    max-width: 100% !important;
+}
+
+
+/* Snackbar styles */
+.MuiSnackbar-root {
+    bottom: 20px; /* Adjust the distance from the bottom */
+  }
+  
+  .MuiSnackbarContent-root {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Semi-transparent white background */
+    color: #000 !important; /* Black text */
+    font-weight: bold !important;
+  }
+
+  .selectedButton {
+    color: black !important; /* Light color for text */
+    background-color: darkgray !important; /* Dark background color */
+  }
+  
+  /* .selectedButton:hover {
+    background-color: gray !important; /* Darken the background color on hover */
+ 
+  
+  
+
+
+  
