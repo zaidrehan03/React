@@ -1,0 +1,32 @@
+try { 
+	webengage.onReady(function () {
+        webengage.survey.onOpen(function (data) {
+            if (data.surveyId === '~162ic95') {
+                console.log('File download21');
+              
+                var downloadLink = document.querySelector("#downloadLink");
+
+                downloadLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    var fileUrl = 'https://www.simplilearn.com/ice9/pdfs/eBook_ProjectManagement_BG.pdf';
+                    var a = document.createElement('a');
+                    a.href = fileUrl;
+                    a.download = 'downloaded_Guidebook';
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+
+                    console.log('File download');
+                });
+            }
+        });
+    });
+ } catch(e) { 
+ 	if (e instanceof Error) { 
+		var data = e.stack || e.description;
+		data = (data.length > 900 ? data.substring(0, 900) : data);
+	 	webengage.eLog(null, 'error', data, 'cwc-error','cwc', '8eda4f6');
+	 }
+ }

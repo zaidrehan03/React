@@ -1,0 +1,45 @@
+try { 
+	_weq['webengage.onReady'] = function () {
+  webengage.notification.onOpen(function(data){
+if(data.notificationId === "~2514304ca" ){
+  if (jQuery("#webklipper-publisher-widget-container-notification-frame").attr("data-notification-layout-id") == "~fg00aad") {
+    jQuery("#sticky-header").css("margin-top", "43px");
+     
+   }
+  var mediaQuery = window.matchMedia('(max-width: 768px)');
+      if (mediaQuery.matches) {
+          var eleMobile = document.querySelector("#sticky-header");
+          var custom_styleMobile = {
+            'margin-top': '55px'
+        };
+        Object.assign(eleMobile.style, custom_styleMobile);
+       }
+  console.log("test header push down");
+}
+});
+  
+    webengage.notification.onClose(function(data){
+if(data.notificationId === "~2514304ca" ){
+  if (jQuery("#webklipper-publisher-widget-container-notification-frame").attr("data-notification-layout-id") == "~fg00aad") {
+    jQuery("#sticky-header").css("margin-top", "0px");
+     
+   }
+  var mediaQuery = window.matchMedia('(max-width: 768px)');
+      if (mediaQuery.matches) {
+          var eleMobile = document.querySelector("#sticky-header");
+          var custom_styleMobile = {
+            'margin-top': '0px'
+        };
+        Object.assign(eleMobile.style, custom_styleMobile);
+       }
+  console.log("test header push down");
+}
+});
+};
+ } catch(e) { 
+ 	if (e instanceof Error) { 
+		var data = e.stack || e.description;
+		data = (data.length > 900 ? data.substring(0, 900) : data);
+	 	webengage.eLog(null, 'error', data, 'cwc-error','cwc', '~5bjl9gg');
+	 }
+ }
