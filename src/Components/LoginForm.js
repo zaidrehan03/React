@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setJwtToken } from './UtlisAuth';
-import ipik from "../Images/zxcvbnm.jpeg";
+import ipik from "../Images/ipik_logo.png";
 import '../Styles/Login.css';
 import { TextField, Button } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
