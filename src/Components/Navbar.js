@@ -118,7 +118,7 @@ const Navbar = ({ setIsAuthenticated }) => {
 
               <Button
                 component={Link}
-                to="/new-client"
+                to="/new-client"r
                 variant="text"
                 className={`appbarButtonLinks ${
                   selectedButton === "New Client" && "selectedButton"
