@@ -4,7 +4,7 @@ export const setJwtToken = (token) => {
   };
   
 
-// Utility function to GET JWT token from localStorage
+  // Utility function to GET JWT token from localStorage
   export const getJwtToken = () => {
     return localStorage.getItem('jwttoken');
   };

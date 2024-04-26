@@ -17,7 +17,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import "../Styles/Dashboard.css";
-import IpikLogo from "../Images/zxcvbnm.jpeg";
+import IpikLogo from "../Images/ipik_logo.png";
 import SashaLogo from "../Images/sasha_logo.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleAltSharpIcon from "@mui/icons-material/PeopleAltSharp";

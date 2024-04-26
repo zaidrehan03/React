@@ -60,6 +60,8 @@ function InvoiceList() {
 
   return (
     <>
+   
+   <div style={{ marginTop: '31px' , marginLeft: '31px', marginRight: '31px' }}>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -125,6 +127,7 @@ function InvoiceList() {
         onClose={() => setSnackbarOpen(false)}
         message={snackbarMessage}
       />
+      </div>
     </>
   );
 }
