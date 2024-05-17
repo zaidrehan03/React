@@ -11,7 +11,6 @@ import {
   Button,
   Snackbar,
 } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { getJwtToken } from "./UtlisAuth";
 import Navbar from "./Navbar"; // Import the Navbar component
 import Sidebar from "./Sidebar"; // Import the Sidebar component
@@ -19,7 +18,7 @@ import Sidebar from "./Sidebar"; // Import the Sidebar component
 function InvoiceList() {
   const [invoices, setInvoices] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarMessage] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar
 
   const navigate = useNavigate();

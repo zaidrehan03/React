@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Button,
@@ -12,11 +12,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { useSearchParams } from "react-router-dom";
-import { getJwtToken } from "./UtlisAuth";
 import { useLocation } from "react-router-dom";
 
-import { useParams } from 'react-router-dom';
 
 const InvoiceForm = () => {
   const location = useLocation();
@@ -35,7 +32,7 @@ const InvoiceForm = () => {
 
 // Safely accessing invoice data from location state
 //const invoiceData = state ? state.invoice : null;
-const invoiceData =  null;
+// const invoiceData =  null;
 //console.log("Invoice data:", invoiceData); 
 
 // Form state variables
@@ -55,13 +52,13 @@ const [items, setItems] = useState([
 ]);
 console.log("Initial items state:", items);
 
-const [descriptionOptions, setDescriptionOptions] = useState([]);
+const [descriptionOptions] = useState([]);
 console.log("Initial descriptionOptions state:", descriptionOptions);
 
 const [snackbarOpen, setSnackbarOpen] = useState(false);
 console.log("Initial snackbarOpen state:", snackbarOpen);
 
-const [snackbarMessage, setSnackbarMessage] = useState("");
+const [snackbarMessage] = useState("");
 console.log("Initial snackbarMessage state:", snackbarMessage);
 
 // Form input change handlers
