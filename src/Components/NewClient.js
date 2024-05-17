@@ -231,10 +231,10 @@ const [isIdAndProofOfAddressAvailable, setIsIdAndProofOfAddressAvailable] = useS
      var isGdrpAvailable = 1;
      var isIcoAvailable = 1;
      var isIdAndProofOfAddressAvailable = 1;
-    const accountDueDateToSend = accountDueDate && isValid(new Date(accountDueDate)) ? format(new Date(accountDueDate), 'yyyy-MM-dd') : null;
-const confirmationStatementToSend = confirmationStatementDueDate && isValid(new Date(confirmationStatementDueDate)) ? format(new Date(confirmationStatementDueDate), 'yyyy-MM-dd') : null;
-const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new Date(vatQeDueDate), 'yyyy-MM-dd') : null;
-    var payrollAmountToSend = payrollAmount.trim() !== '' ? parseFloat(payrollAmount) : 0;
+     const accountDueDateToSend = accountDueDate && isValid(new Date(accountDueDate)) ? format(new Date(accountDueDate), 'yyyy-MM-dd') : null;
+     const confirmationStatementToSend = confirmationStatementDueDate && isValid(new Date(confirmationStatementDueDate)) ? format(new Date(confirmationStatementDueDate), 'yyyy-MM-dd') : null;
+     const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new Date(vatQeDueDate), 'yyyy-MM-dd') : null;
+     var payrollAmountToSend = payrollAmount.trim() !== '' ? parseFloat(payrollAmount) : 0;
      var pensionAmount = pensionFee || 0;
      var taxReturnAmount = taxReturnFee || 0;
      var registerOfficeAmount = registerOfficeFee || 0;
@@ -369,12 +369,12 @@ const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new
       
       const data = await response.json();
       if (data.CODE === 1) {
-        console.log("Data saved successfully:", data);
+        window.alert("Data saved successfully:", data);
       } else {
-        console.error("Error saving data:", data.SYSTEM_MESSAGE);
+        window.alert("Error saving data:", data.SYSTEM_MESSAGE);
       }
     } catch (error) {
-      console.error("Error saving data:", error);
+      window.alert("Error saving data:", error);
     }
   };
 
@@ -576,7 +576,6 @@ const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new
     }}
   />
 </Grid>
-
             </Grid>
             <br />
 
@@ -860,7 +859,6 @@ const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new
     </Button>
   </Grid>
 </CustomTabPanel>
-
 
           <CustomTabPanel value={value} index={4}>
             <Grid container spacing={2}>

@@ -3,3 +3,10 @@ body{
   margin: 0;
 }
 
+/* styles.css */
+.shifted-content {
+  margin-left: 30vh; /* Adjust this value according to your sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+

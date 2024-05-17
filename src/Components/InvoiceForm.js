@@ -298,6 +298,7 @@ console.log("Handle submit function");
           <Button variant="contained" color="secondary">
             Remove Item
           </Button>
+          
           <Button
             type="submit"
             variant="contained"
@@ -307,6 +308,7 @@ console.log("Handle submit function");
           >
             Submit
           </Button>
+
         </Paper>
       </Grid>
     </Grid>

@@ -13,11 +13,14 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { getJwtToken } from "./UtlisAuth";
+import Navbar from "./Navbar"; // Import the Navbar component
+import Sidebar from "./Sidebar"; // Import the Sidebar component
 
 function InvoiceList() {
   const [invoices, setInvoices] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar
 
   const navigate = useNavigate();
 
@@ -58,81 +61,89 @@ function InvoiceList() {
     fetchInvoices();
   }, []);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // Function to toggle sidebar state
+  };
+
   return (
     <>
-   
-   <div style={{ marginTop: '31px' , marginLeft: '31px', marginRight: '31px' }}>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Invoice ID</TableCell>
-              <TableCell>Client Code</TableCell>
-              <TableCell>Company Name</TableCell>
-              <TableCell>Creation Date</TableCell>
-              <TableCell>Bank Name</TableCell>
-              <TableCell>Total Amount</TableCell>
-              <TableCell>Actions</TableCell> {/* New column for actions */}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {invoices.map((invoice) => (
-              <TableRow key={invoice.invoiceId}>
-                <TableCell>{invoice.invoiceId}</TableCell>
-                <TableCell>{invoice.clientCode}</TableCell>
-                <TableCell>{invoice.companyName}</TableCell>
-                <TableCell>{invoice.creationDate}</TableCell>
-                <TableCell>{invoice.bankName}</TableCell>
-                <TableCell>{invoice.totalAmount}</TableCell>
-                <TableCell>
-                  <Link
-                    to={{
-                      pathname: "/InvoiceForm", // Update with the correct pathname for the edit page
-                      state: { invoiceId: invoice.invoiceId },
-                    }}
-                    style={{ textDecoration: "none" }} // Adjust styles as needed
-                  >
-                    <Button variant="outlined" color="primary">
-                      Edit
-                    </Button>
-                  </Link>
-                  {/* <Link
-                    to={{
-                      pathname: "/PdfView",
-                      state: invoice.invoiceId,
-                    }}
-                    style={{ textDecoration: "none" }} // Adjust styles as needed
-                  > */}
-                  <Button
-                    onClick={() =>
-                      navigate("/PdfView", {
-                        state: { invoice: invoice.invoiceId },
-                      })
-                    }
-                    variant="outlined"
-                    color="primary"
-                  >
-                    View
-                  </Button>
-                  {/* </Link> */}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={() => setSnackbarOpen(false)}
-        message={snackbarMessage}
+      <Navbar
+        isAuthenticated={true} // Assuming the user is authenticated
+        setIsAuthenticated={() => {}} // Placeholder function
+        toggleSidebar={toggleSidebar} // Pass toggleSidebar function to Navbar
+        isSidebarOpen={isSidebarOpen} // Pass sidebar state to Navbar
       />
+
+
+      <div sx={{ flexGrow: 1, marginLeft: isSidebarOpen ? "30vh" : 0 }}>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+       <div style={{ marginTop: "31px", marginLeft: "31px", marginRight: "31px" }}> 
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Invoice ID</TableCell>
+                <TableCell>Client Code</TableCell>
+                <TableCell>Company Name</TableCell>
+                <TableCell>Creation Date</TableCell>
+                <TableCell>Bank Name</TableCell>
+                <TableCell>Total Amount</TableCell>
+                <TableCell>Actions</TableCell>
+                {/* New column for actions */}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {invoices.map((invoice) => (
+                <TableRow key={invoice.invoiceId}>
+                  <TableCell>{invoice.invoiceId}</TableCell>
+                  <TableCell>{invoice.clientCode}</TableCell>
+                  <TableCell>{invoice.companyName}</TableCell>
+                  <TableCell>{invoice.creationDate}</TableCell>
+                  <TableCell>{invoice.bankName}</TableCell>
+                  <TableCell>{invoice.totalAmount}</TableCell>
+                  <TableCell>
+                    <Link
+                      to={{
+                        pathname: "/InvoiceForm",
+                        state: { invoiceId: invoice.invoiceId },
+                      }}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Button variant="outlined" color="primary">
+                        Edit
+                      </Button>
+                    </Link>
+                    <Button
+                      onClick={() =>
+                        navigate("/PdfView", {
+                          state: { invoice: invoice.invoiceId },
+                        })
+                      }
+                      variant="outlined"
+                      color="primary"
+                    >
+                      View
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={() => setSnackbarOpen(false)}
+          message={snackbarMessage}
+        />
+      </div>
       </div>
     </>
   );
 }
 
 export default InvoiceList;
+
 
 // import React, { useState, useEffect } from "react";
 // import { useLocation, useSearchParams, Link } from "react-router-dom";
