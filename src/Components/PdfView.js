@@ -199,8 +199,7 @@
 
 // export default PdfView;
 
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Snackbar } from "@mui/material";
 import { getJwtToken } from "./UtlisAuth";
@@ -219,13 +218,7 @@ function PdfView({ isOpen, toggleSidebar }) {
     }
   }, [location.state]);
 
-  useEffect(() => {
-    if (invoiceId) {
-      handleGeneratePdf();
-    }
-  }, [invoiceId]);
-
-  const handleGeneratePdf = async () => {
+  const handleGeneratePdf = useCallback(async () => {
     try {
       const jwtToken = getJwtToken();
       const response = await fetch(
@@ -247,7 +240,13 @@ function PdfView({ isOpen, toggleSidebar }) {
       console.error("Error fetching PDF:", error);
       handleSnackbarError("Failed to fetch PDF");
     }
-  };
+  }, [invoiceId]);
+
+  useEffect(() => {
+    if (invoiceId) {
+      handleGeneratePdf();
+    }
+  }, [invoiceId, handleGeneratePdf]);
 
   const handleSnackbarError = (errorMessage) => {
     console.error(errorMessage);
@@ -283,4 +282,3 @@ function PdfView({ isOpen, toggleSidebar }) {
 }
 
 export default PdfView;
-

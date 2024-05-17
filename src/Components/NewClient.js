@@ -1104,7 +1104,6 @@ function NewClient() {
   const [confirmationStatementDueDate, setConfirmationStatementDueDate] = useState("");
   const [accountDueDate, setAccountDueDate] = useState("");
   const [vatQeDueDate, setVatQeDueDate] = useState("");
-  const [payrollAmount, setPayrollAmount] = useState('');
   const [accountFee, setAccountFee] = useState('');
   const [vatFee, setVatFee] = useState('');
   const [pensionFee, setPensionFee] = useState('');
@@ -1236,13 +1235,6 @@ function NewClient() {
     const max = 100000;
     const uniqueUvid = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const handleCompanyTypeChange = (event) => {
-      const inputValue = event.target.value;
-      const intValue = parseInt(inputValue, 10); // Convert input value to integer
-      setCompanyType(isNaN(intValue) ? "" : intValue); // Set companyType to integer or empty string if conversion fails
-    };
-
-    var uvid = uniqueUvid;
     var companyNo = companyNumber;
     var companyName = companyData?.company_name || "";
     var clientCode = companyData?.client_code || "";
@@ -1264,7 +1256,7 @@ function NewClient() {
     var directorEmail = emailAddress;
     var directorNiNumber = niNo;
     var directorUniqueTaxRefNo = parseInt(directorUniqueTaxNo, 10) || 0;
-    var directorGatewayId = parseInt(directorGatewayId, 10) || 0;
+    var directorGatewayIdParsed = parseInt(directorGatewayId, 10) || 0;
     var directorPassword = "";
     var IsEngagementAvailable = 1;
     var is64bAvailable = 1;
@@ -1275,7 +1267,6 @@ function NewClient() {
     const accountDueDateToSend = accountDueDate && isValid(new Date(accountDueDate)) ? format(new Date(accountDueDate), 'yyyy-MM-dd') : null;
     const confirmationStatementToSend = confirmationStatementDueDate && isValid(new Date(confirmationStatementDueDate)) ? format(new Date(confirmationStatementDueDate), 'yyyy-MM-dd') : null;
     const vatQeToSend = vatQeDueDate && isValid(new Date(vatQeDueDate)) ? format(new Date(vatQeDueDate), 'yyyy-MM-dd') : null;
-    var payrollAmountToSend = payrollAmount.trim() !== '' ? parseFloat(payrollAmount) : 0;
     var pensionAmount = pensionFee || 0;
     var taxReturnAmount = taxReturnFee || 0;
     var registerOfficeAmount = registerOfficeFee || 0;
@@ -1342,7 +1333,7 @@ function NewClient() {
         "&directorUniqueTaxRefNo=" +
         directorUniqueTaxRefNo +
         "&directorGatewayId=" +
-        directorGatewayId +
+        directorGatewayIdParsed +
         "&directorPassword=" +
         directorPassword +
         "&IsEngagementAvailable=" + (IsEngagementAvailable ? 1 : 0) +
@@ -1357,8 +1348,6 @@ function NewClient() {
         confirmationStatementToSend +
         "&vatQe=" +
         vatQeToSend +
-        "&payrollAmount=" +
-        payrollAmountToSend +
         "&pensionAmount=" +
         pensionAmount +
         "&taxReturnAmount=" +
