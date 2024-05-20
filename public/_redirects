@@ -1,2 +1,2 @@
 /*    /index.html   200
-/api/*  https://18.197.21.71/ipik/:splat  200
+/.netlify/functions/*    /functions/:splat   200

@@ -49,12 +49,16 @@ const [snackbarMessage, setSnackbarMessage] = useState('');
     }
   
     try {
-      const response = await fetch(`http://18.197.21.71:8084/ipik/authentication/Authenticate?userEmail=${email}&password=${password}`, {
-        method: 'POST',
+      fetch('/.netlify/functions/proxy?userEmail=umerijaz14312@gmail.com&password=123', {
+        method: 'GET', // Or 'POST', depending on your API
         headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+      
       const data = await response.json();
   
       if (data.jwttoken) {
