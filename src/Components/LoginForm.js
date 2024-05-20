@@ -71,7 +71,6 @@ const [snackbarMessage, setSnackbarMessage] = useState('');
     }
   };
 
-
   return (
     <div className="login-container">
       <div className="card">
