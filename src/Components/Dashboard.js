@@ -437,7 +437,7 @@ export default function Dashboard() {
     try {
       const token = getJwtToken();
       const activeResponse = await fetch(
-        "https://18.197.21.71:8084/ipik/CompaniesList",
+        "http://18.197.21.71:8084/ipik/CompaniesList",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -454,7 +454,7 @@ export default function Dashboard() {
       setActiveCompanies(activeData.DATA);
 
       const nonActiveResponse = await fetch(
-        "https://18.197.21.71:8084/ipik/CompaniesListNonActive",
+        "http://18.197.21.71:8084/ipik/CompaniesListNonActive",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -492,7 +492,7 @@ export default function Dashboard() {
     try {
       const token = getJwtToken();
       const response = await fetch(
-        `https://18.197.21.71:8084/ipik/MarkCompanyInactive?companyId=${companyId}`,
+        `http://18.197.21.71:8084/ipik/MarkCompanyInactive?companyId=${companyId}`,
         {
           method: "PUT",
           headers: {
@@ -521,7 +521,7 @@ export default function Dashboard() {
     try {
       const token = getJwtToken();
       const response = await fetch(
-        `https://18.197.21.71:8084/ipik/MarkCompanyDeleted?companyId=${companyId}`,
+        `http://18.197.21.71:8084/ipik/MarkCompanyDeleted?companyId=${companyId}`,
         {
           method: "DELETE",
           headers: {

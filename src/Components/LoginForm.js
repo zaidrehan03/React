@@ -49,7 +49,7 @@ const [snackbarMessage, setSnackbarMessage] = useState('');
     }
   
     try {
-      const response = await fetch(`https://18.197.21.71:8084/ipik/authentication/Authenticate?userEmail=${email}&password=${password}`, {
+      const response = await fetch(`http://18.197.21.71:8084/ipik/authentication/Authenticate?userEmail=${email}&password=${password}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
